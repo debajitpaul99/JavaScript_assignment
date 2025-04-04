@@ -15,7 +15,7 @@ const showDefaultData = async () => {
                 <p>Instruction: ${element.strInstructions.slice(0,15)}</p>
             <div class="buttons">
                 <button class="button" onclick="handleDetails('${element.idDrink}')">Details</button>
-                <button class="button" onclick="handleAddToCart('${element.strDrink}','${element.strDrinkThumb}')">Add to cart</button>
+                <button class="button" onclick="handleAddToCart('${element.strDrink}','${element.strDrinkThumb}',this)">Add to cart</button>
             </div>
             </div>
         </div>
