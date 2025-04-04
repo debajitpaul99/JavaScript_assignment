@@ -52,7 +52,7 @@ const displayData = (cocktails, target_menu) => {
                     <p>Instruction: ${element.strInstructions.slice(0,15)}</p>
                 <div class="buttons">
                     <button class="button" onclick="handleDetails('${element.idDrink}')">Details</button>
-                    <button class="button" onclick="handleAddToCart('${element.strDrink}','${element.strDrinkThumb}')">Add to cart</button>
+                    <button class="button" onclick="handleAddToCart('${element.strDrink}','${element.strDrinkThumb}',this)">Add to cart</button>
                 </div>
                 </div>
             </div>
@@ -70,9 +70,9 @@ const handleAddToCart = (name, image, button) => {
         const cartItem = document.createElement("div");
         cartItem.classList.add("full-cart");
         cartItem.innerHTML = `
+        ${order_count}
         <img src="${image}" class="cart-img" alt="...">
         <p>${name}</p>
-        <button onclick="handleRemove(this,'${name}')" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         `
         cartItems.appendChild(cartItem);
         const hr = document.createElement("hr");
