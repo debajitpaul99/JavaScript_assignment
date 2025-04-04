@@ -62,7 +62,7 @@ const displayData = (cocktails, target_menu) => {
     });
 }
 
-const handleAddToCart = (name, image) => {
+const handleAddToCart = (name, image, button) => {
     if (order_count < 7) {
         order_count = order_count + 1;
         document.getElementById("quantity").innerText = `Total cart: ${order_count}`;
@@ -70,13 +70,15 @@ const handleAddToCart = (name, image) => {
         const cartItem = document.createElement("div");
         cartItem.classList.add("full-cart");
         cartItem.innerHTML = `
-        <p>${order_count}</p>
         <img src="${image}" class="cart-img" alt="...">
         <p>${name}</p>
+        <button onclick="handleRemove(this,'${name}')" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         `
         cartItems.appendChild(cartItem);
         const hr = document.createElement("hr");
         cartItems.appendChild(hr);
+        button.innerText = "Already added";
+        button.disabled = true;
     }
     else {
         alert("You have reach the max limit");
